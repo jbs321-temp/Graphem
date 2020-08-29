@@ -1,61 +1,88 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+###Senior Developer Technical Examination 
+## User Stories and Progress Status
+Install Laravel and a way to run it on your device, you can use Homestead 
+- [done]
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Configure it to connect to a local MySQL database called "codetest", where you
+will put your data.
+- [done]
 
-## About Laravel
+Create a Controller so that this URL will work: "http://local/myheroes/” (local is
+just an example; it is whatever the docroot is). This page should show “My
+Teams”.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [done]
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Create a view using Blade that has a very simple form:
+* Super Hero Name
+* Side (2 options: light, dark)
+* Hit Points
+* Attack
+* Special Ability
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [done]
 
-## Learning Laravel
+Make that viewable on the following route: /myheroes/createhero/.
+Heroes do not need to be editable once created.
+* That form should post to the controller and store the hero in the database.
+* Once posted, it should display a success message and allow the user to create
+more.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [done]
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+7) Create a new page on the following route: /myheroes/createteam.
+a) This page will have a list of available heroes that were created and a list
+called “My Team”.
 
-## Laravel Sponsors
+- [done]
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## From this point down the tasks are incomplete and missing work
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+- The user should be able to create either a “Dark” side team or a “Light” side team.
+- Limit the team size to 3-5 heroes.
+- Heroes can be added to the team or removed.
+- Once created the team doesn’t need to be editable.
+- Come up with a way to calculate a superhero’s combat power. 
+- The team should have a combat power that is the sum of all heroes selected on the team.
 
-## Contributing
+### Questions Answered
+- How do you prioritize your effort in trying to complete the project?
+- I was prioritizing the project into 2 phases:
+ * phase 1 was to create the Hero page including front and back end. with appropriate validation.
+ * phase 2 was to upgrade the logic to create teams
+ * phase 3 to create the calculation for tean powers
+  
+- You kept enough time to finish your documentation at the end.
+- I left 30 minutes for documentation.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- How do you utilize Laravel and its libraries?
+- Back-End: I used the laravel stack
+- Front-End: See packagist for more details, I added mainly react-reduct and reduct-form to crate a easier stateless single page app. (I lost some time bootstrapping it). 
+  I'm more familiar with react so I used that js framework. for visual design I used simple bootstrap per requirements.
 
-## Code of Conduct
+- What were you able to complete?
+- See description of user stories above
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- What you feel is still needed?
+- See description of user stories above
+ 
+- What would you do differently?
+- I think I would invest more on the backend first as its my stornger side (I was trying to achieve visual results)
 
-## Security Vulnerabilities
+- What would you add to the points listed below?
+* Controller - I dont put business logic in it, I would keep controllers as simple as possible and similar to each other. 
+  I would implement authentication using Laravel prebuild authentication and add passport for autherization for api security.
+  
+* Model - I would hide the id's or scramble them so client side won't have them visible. I would add documentation what are the entities/models in the code.
+          I would normalize the Database as it grows and so I would have distinct mopels accordingly. I would add comments on tables to explain them.
+     
+* View - The view is heanded off to react, I would only secure the views with the authentication.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Code - I will add code and commentary on methods, I would separate responisibilities using design patterns like: repositories, services to make it easier to read the code and now why its there for. 
 
-## License
+As a general note I would start from writing tests, implementing the security features and then the rest of the code. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Thank you,
+
+Jacob Balabanov. 

@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//TODO:: requires authentication
+Route::get('/heroes', 'HeroController@getList');
+Route::post('/hero', 'HeroController@create');
+Route::post('/team', 'HeroController@create');
+Route::get('/team', 'HeroController@getList');
